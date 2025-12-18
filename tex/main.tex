@@ -3,12 +3,12 @@
 \usepackage{import}
 
 \usepackage{makeidx}
-\usepackage[backend=biber, sorting=none, style=phys]{biblatex}
+%\usepackage[backend=biber, sorting=none, style=phys]{biblatex}
 
 %\addbibresource{refs.bib}
 
 \title{Market crash and phase transitions}
-\author{Y}
+\author{V}
 \date{2025}
 
 \begin{document}
@@ -29,21 +29,21 @@ $$
 r(t) = \log\text{Close}(t) - \log\text{Close}(t-1).
 $$
 The shaded areas in Fig.~\ref{fig:log_ret} correspond to the market crashes time interval.
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\linewidth]{../figs/log_ret_SP500.png}
     \caption{Log returns for the S\&P500 index}
     \label{fig:log_ret}
 \end{figure}
 We can now plot Fig.~\ref{fig:abs_ret} the absolute value of the log returns to highlight the peaks reached.
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\linewidth]{../figs/abs_log_ret_SP500.png}
     \caption{Absolute value of log returns for the S\&P500 index}
     \label{fig:abs_ret}
 \end{figure}
 Lastly, we present the histogram of the log returns Fig.~\ref{fig:hist} which shows the probability of each return. We compare it with a gaussian pdf with the same mean and variance and we observe an higher peak and fatter tails of our data. 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\linewidth]{../figs/hist_log_ret_SP500.png}
     \caption{Histogram of the log returns of S\&P500 index}
@@ -80,7 +80,7 @@ $$
 \alpha = 4.1.
 $$
 The theory sets extreme values for this exponent: $\alpha$ cannot be lower than $2$ as it would mean that our distribution has infinite variance, which is not physical; as $\alpha$ grows, then, the distribution resemble more a gaussian one $\alpha \to \infty$. In general one expect $\alpha$ to be upper limited by $4$ as in this case variance is finite, but higher moments can still be infinite.
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\linewidth]{../figs/fit_log_ret_SP500.png}
     \caption{Fit of abs log returns of S\&P500 index}
@@ -100,7 +100,7 @@ $$
 C(\tau) = \sum_{t}\langle |r(t)| |r(t + \tau)| \rangle .
 $$
 As we can see from Fig.~\ref{fig:volatility}, volatility decays much slower compared to the autocorrelations, signaling that the market behavior is not totally random, but there is an underlying structure.
-    \begin{figure}[h]
+\begin{figure}[ht]
 \begin{minipage}{0.49\textwidth}
     \centering
     \includegraphics[width=\linewidth]{../figs/autocorr.png}
@@ -122,7 +122,7 @@ As we can see from Fig.~\ref{fig:volatility}, volatility decays much slower comp
 We now evaluate the rolling tail exponent $\alpha$ for a $2$ years window and construct a time series by moving this window of two months and re-evaluating the exponent. We then compare this series with the closing prices of the S\&P 500 index Fig.~\ref{fig:rolling_exp}. 
 We expect that at a market crash the system behaves like at a critical point of a phase transition, thus becoming strongly correlated. 
 We measure these correlations through $\alpha$, so we expect the rolling tail exponent to decrease before the crash, because as $\alpha$ decreases the tails fatten and as the tails fatten extreme events become more likely: this is what $\alpha$ tells us in general, not only during periods of market crash.
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\linewidth]{../figs/rolling_tail_exponent.png}
     \caption{Rolling tail exponent compared with the S\&P500 index}
